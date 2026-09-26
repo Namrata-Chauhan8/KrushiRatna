@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ *
+ * The reference console is a light-only UI, so the palette is defined once
+ * here and consumed through semantic Tailwind utilities (`bg-surface`,
+ * `text-muted`, `border-line`, `bg-brand`, ...) rather than repeating raw hex
+ * values across components.
+ */
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Primary action colour. */
+  --color-brand: #7c3aed;
+  --color-brand-hover: #6d28d9;
+  --color-brand-soft: #ede9fe;
+  --color-brand-strong: #5b21b6;
+
+  /* Surfaces and text. */
+  --color-canvas: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-line: #e8e9ee;
+  --color-ink: #111827;
+  --color-muted: #6b7280;
+  --color-faint: #9ca3af;
+
+  /* Status accents. */
+  --color-success: #16a34a;
+  --color-success-soft: #ecfdf5;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fef2f2;
+  --color-warning: #d97706;
+  --color-warning-soft: #fffbeb;
+  --color-info: #2563eb;
+  --color-info-soft: #eff6ff;
+
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 1px 3px rgb(16 24 40 / 0.06);
+  --shadow-pop: 0 20px 48px rgb(16 24 40 / 0.16);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+/* Slim scrollbars inside the sidebar and scrollable tables. */
+@supports (scrollbar-width: thin) {
+  .scroll-slim {
+    scrollbar-width: thin;
+    scrollbar-color: #d4d6dd transparent;
+  }
+}
+
+/* Keyboard focus is always visible, but pointer clicks stay clean. */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
